@@ -1,9 +1,5 @@
 { config, lib, pkgs, ... }:
 
-let
-  nextdnsHost = builtins.readFile /etc/nextdns-id;
-in
-
 {
   networking = {
     wireless.enable = true;

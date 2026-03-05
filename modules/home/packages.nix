@@ -24,5 +24,6 @@
     age
     libnatpmp
     pciutils
+    tldr
   ];
 }

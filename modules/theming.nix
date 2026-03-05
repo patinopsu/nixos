@@ -20,15 +20,15 @@
         name = "Noto Color Emoji";
       };
       sizes = {
-        desktop = 10;
+        desktop = 11;
         applications = 11;
       };
     };
     icons = {
       enable = true;
-      package = pkgs.kdePackages.breeze-icons;
-      dark = "breeze-dark";
-      light = "breeze";
+      package = pkgs.papirus-icon-theme;
+      dark = "Papirus-Dark";
+      light = "Papirus-Light";
     };
     cursor = {
       name = "WhiteSur-cursors";

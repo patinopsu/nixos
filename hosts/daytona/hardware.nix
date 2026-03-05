@@ -1,88 +1,96 @@
-{ config, lib, pkgs, modulesPath, ... }:
+{ config, lib, pkgs, ... }:
 
 {
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
-
-  fileSystems."/boot/efi" = {
-    device = "/dev/disk/by-uuid/DB14-0F2E";
-    fsType = "vfat";
-    options = [ "fmask=0022" "dmask=0022" ];
+  boot = {
+    initrd = {
+      kernelModules = [];
+      availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "sd_mod" ];
+    };
+    extraModulePackages = [];
+    kernelModules = [ "kvm-intel" ];
   };
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/26504aba-e36f-426a-b3e7-36b6bfffa893";
-    fsType = "ext4";
+  fileSystems = {
+    "/boot" = {
+      device = "/dev/disk/by-uuid/${config.globalvars.bootuuid}";
+      fsType = "ext4";
+    };
+    "/boot/efi" = {
+      device = "/dev/disk/by-uuid/${config.globalvars.efiuuid}";
+      fsType = "vfat";
+      options = [
+        "fmask=0077"
+        "dmask=0077"
+      ];
+    };
+    "/" = {
+      device = "/dev/disk/by-uuid/${config.globalvars.rootuuid}";
+      fsType = "btrfs";
+      options = [
+        "subvol=@"
+        "compress=zstd:1"
+        "noatime"
+        "ssd"
+        "discard=async"
+        "space_cache=v2"
+      ];
+    };
+    "/home" = {
+      device = "/dev/disk/by-uuid/${config.globalvars.rootuuid}";
+      fsType = "btrfs";
+      options = [
+        "subvol=@home"
+        "compress=zstd:1"
+        "noatime"
+        "ssd"
+        "discard=async"
+        "space_cache=v2"
+      ];
+    };
+    "/swap" = { 
+      device = "/dev/disk/by-uuid/${config.globalvars.rootuuid}";
+      fsType = "btrfs";
+      options = [
+        "subvol=@swap"
+        "compress=zstd:1"
+        "noatime"
+        "ssd"
+        "discard=async"
+        "space_cache=v2"
+      ];
+    };
+    "/nix" = { 
+      device = "/dev/disk/by-uuid/${config.globalvars.rootuuid}";
+      fsType = "btrfs";
+      options = [
+        "subvol=@nix"
+        "compress=zstd:1"
+        "noatime"
+        "ssd"
+        "discard=async"
+        "space_cache=v2"
+      ];
+    };
+    "/var/log" = {
+      device = "/dev/disk/by-uuid/${config.globalvars.rootuuid}";
+      fsType = "btrfs";
+      options = [
+        "subvol=@log"
+        "compress=zstd:1"
+        "noatime"
+        "ssd"
+        "discard=async"
+        "space_cache=v2"
+      ];
+    };
   };
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/3f7e2e5c-d913-44dc-b66d-5740c14d57fc";
-    fsType = "btrfs";
-    options = [
-      "subvol=@"
-      "compress=zstd:1"
-      "noatime"
-      "ssd"
-      "discard=async"
-      "space_cache=v2"
-    ];
-  };
-
-  fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/3f7e2e5c-d913-44dc-b66d-5740c14d57fc";
-    fsType = "btrfs";
-    options = [
-      "subvol=@home"
-      "compress=zstd:1"
-      "noatime"
-      "ssd"
-      "discard=async"
-      "space_cache=v2"
-    ];
-  };
-
-  fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/3f7e2e5c-d913-44dc-b66d-5740c14d57fc";
-    fsType = "btrfs";
-    options = [
-      "subvol=@nix"
-      "compress=zstd:1"
-      "noatime"
-      "ssd"
-      "discard=async"
-      "space_cache=v2"
-    ];
-  };
-
-  fileSystems."/swap" = {
-    device = "/dev/disk/by-uuid/3f7e2e5c-d913-44dc-b66d-5740c14d57fc";
-    fsType = "btrfs";
-    options = [
-      "subvol=@swap"
-      "compress=zstd:1"
-      "noatime"
-      "ssd"
-      "discard=async"
-      "space_cache=v2"
-    ];
-  };
-
-  fileSystems."/mnt/volusia" = {
-    device = "/dev/disk/by-uuid/63da539e-e0b5-448a-94bd-9c141d188b87";
-    fsType = "btrfs";
-    options = [
-      "compress=zstd:1"
-      "noatime"
-      "ssd"
-      "discard=async"
-      "space_cache=v2"
-      "nofail"
-    ];
-  };
-
-  swapDevices = [ ];
+  swapDevices = [
+    {
+      device = "/swap/swapfile";
+      size = 32*1024;
+    }
+  ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
