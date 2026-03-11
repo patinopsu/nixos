@@ -27,8 +27,9 @@
       url = "github:noctalia-dev/noctalia-qs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    vicinae.url = "github:vicinaehq/vicinae";
   };
-  outputs = inputs@{ self, nixpkgs, home-manager, sops-nix, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, sops-nix, vicinae, ... }: {
     nixosConfigurations.workstation = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit self inputs; };
