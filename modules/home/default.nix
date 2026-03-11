@@ -13,6 +13,7 @@
     ./packages.nix
     ./spicetify.nix
     ./ssh.nix
+    ./vicinae.nix
     ./vscode.nix
     ./zsh.nix
     ./zed.nix
@@ -20,6 +21,7 @@
     # Variables
     ../../src/options.nix
 
+    inputs.vicinae.homeManagerModules.default
     inputs.spicetify-nix.homeManagerModules.spicetify
     inputs.noctalia.homeModules.default
   ];
