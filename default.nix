@@ -29,7 +29,4 @@
     inputs.nix-flatpak.nixosModules.nix-flatpak
     inputs.home-manager.nixosModules.home-manager
   ];
-  nixpkgs.overlays = [
-    inputs.dolphin-overlay.overlays.default
-  ];
 }

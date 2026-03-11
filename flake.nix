@@ -27,7 +27,6 @@
       url = "github:noctalia-dev/noctalia-qs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    dolphin-overlay.url = "github:rumboon/dolphin-overlay";
   };
   outputs = inputs@{ self, nixpkgs, home-manager, sops-nix, ... }: {
     nixosConfigurations.workstation = nixpkgs.lib.nixosSystem {
