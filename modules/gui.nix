@@ -1,4 +1,4 @@
-{inputs, pkgs, ...}:
+{inputs, pkgs, lib, ...}:
 
 {
   services.displayManager.ly = {
@@ -27,4 +27,28 @@
     dolphin
   ];
   services.udisks2.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+  xdg = {
+    portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        kdePackages.xdg-desktop-portal-kde
+      ];
+      config = {
+        common = {
+          default = [
+            "gtk"
+          ];
+        };
+        hyprland = lib.mkForce {
+          default = [
+            "kde"
+            "hyprland"
+          ];
+          "org.freedesktop.impl.portal.ScreenCast" = [ "hyprland" ];
+          "org.freedesktop.impl.portal.Screenshot" = [ "hyprland" ];
+        };
+      };
+    };
+  };
 }
