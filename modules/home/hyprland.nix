@@ -131,7 +131,7 @@
         "$mainMod, Q, killactive"
         "$mainMod, V, exec, noctalia-shell ipc call launcher clipboard"
         "$mainMod, E, exec, $fileManager"
-        "$mainMod Shift, R, exec, ~/scripts/record.sh"
+        "$mainMod Shift, R, exec, ${config.globalvars.configsrc}/src/scripts/record.sh"
 
         "Alt, Space, exec, $menu"
         "$mainMod, L, exec, hyprlock"
@@ -174,9 +174,9 @@
         "bind = $mainMod SHIFT, down, layoutmsg, movewindowto d"
         "bind = $mainMod SHIFT, A, layoutmsg, promote"
 
-        ", PRINT, exec, ~/scripts/screenshots.sh full"
-        "Alt, PRINT, exec, ~/scripts/screenshots.sh window"
-        "Ctrl, PRINT, exec, ~/scripts/screenshots.sh region"
+        ", PRINT, exec, ${config.globalvars.configsrc}/src/scripts/screenshots.sh full"
+        "Alt, PRINT, exec, ${config.globalvars.configsrc}/src/scripts/screenshots.sh window"
+        "Ctrl, PRINT, exec,${config.globalvars.configsrc}/src/scripts/screenshots.sh region"
       ];
 
       bindl = [
