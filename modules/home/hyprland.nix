@@ -12,7 +12,7 @@
       ];
 
       "$terminal" = "kitty";
-      "$fileManager" = "nautilus";
+      "$fileManager" = "dolphin";
       "$menu" = "vicinae toggle";
       "$browser" = "brave";
       "$mainMod" = "SUPER";
