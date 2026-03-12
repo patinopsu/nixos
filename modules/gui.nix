@@ -19,7 +19,13 @@
     withUWSM  = true;
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
   };
-  services.gnome.gnome-keyring.enable = true;
+  environment.systemPackages = with pkgs; [
+    nautilus
+  ];
+  services = {
+    gvfs.enable = true;
+    gnome.gnome-keyring.enable = true;
+  };
   xdg = {
     portal = {
       enable = true;

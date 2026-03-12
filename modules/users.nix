@@ -1,7 +1,7 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
-  users.users.${config.globalvars.username} = {
+  users.users.${config.vars.username} = {
     isNormalUser = true;
     description = "Patin Muangjan";
     extraGroups = [ "wheel" "i2c" "input" "uinput" ];
@@ -17,7 +17,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "backup";
-    users.${config.globalvars.username} = {
+    users.${config.vars.username} = {
       imports = [
         ./home/default.nix
       ];

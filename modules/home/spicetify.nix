@@ -6,7 +6,7 @@ in
 {
   programs.spicetify = {
     enable = true;
-    theme = spicePkgs.themes.text;
+    theme = spicePkgs.themes.lucid;
      enabledExtensions = with spicePkgs.extensions; [
        adblockify
        hidePodcasts

@@ -12,11 +12,11 @@
 
   fileSystems = {
     "/boot" = {
-      device = "/dev/disk/by-uuid/${config.globalvars.bootuuid}";
+      device = "/dev/disk/by-uuid/${config.vars.bootuuid}";
       fsType = "ext4";
     };
     "/boot/efi" = {
-      device = "/dev/disk/by-uuid/${config.globalvars.efiuuid}";
+      device = "/dev/disk/by-uuid/${config.vars.efiuuid}";
       fsType = "vfat";
       options = [
         "fmask=0077"
@@ -24,7 +24,7 @@
       ];
     };
     "/" = {
-      device = "/dev/disk/by-uuid/${config.globalvars.rootuuid}";
+      device = "/dev/disk/by-uuid/${config.vars.rootuuid}";
       fsType = "btrfs";
       options = [
         "subvol=@"
@@ -36,7 +36,7 @@
       ];
     };
     "/home" = {
-      device = "/dev/disk/by-uuid/${config.globalvars.rootuuid}";
+      device = "/dev/disk/by-uuid/${config.vars.rootuuid}";
       fsType = "btrfs";
       options = [
         "subvol=@home"
@@ -48,7 +48,7 @@
       ];
     };
     "/swap" = {
-      device = "/dev/disk/by-uuid/${config.globalvars.rootuuid}";
+      device = "/dev/disk/by-uuid/${config.vars.rootuuid}";
       fsType = "btrfs";
       options = [
         "subvol=@swap"
@@ -60,7 +60,7 @@
       ];
     };
     "/nix" = {
-      device = "/dev/disk/by-uuid/${config.globalvars.rootuuid}";
+      device = "/dev/disk/by-uuid/${config.vars.rootuuid}";
       fsType = "btrfs";
       options = [
         "subvol=@nix"

@@ -23,16 +23,16 @@
         ];
       };
       initContent = ''
-        echo Welcome, ${config.globalvars.fullname}, I hope you bring some buritos 🌯
+        echo Welcome, ${config.vars.fullname}, I hope you bring some buritos 🌯
         echo ""
-        fastfetch -c ${config.globalvars.configsrc}/src/fastfetch.jsonc -l ${config.globalvars.configsrc}/src/nix-snowflakes.png
+        fastfetch -c ${config.vars.configsrc}/src/fastfetch.jsonc -l ${config.vars.configsrc}/src/nix-snowflakes.png
         [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
       '';
       shellAliases = {
         garbagecollect = "sudo nix-collect-garbage -d && nrb";
         plasmafetch = "nix run github:nix-community/plasma-manager > ~/nixos/modules/home/plasma.nix";
         cd = "z";
-        "beaufetch" = "fastfetch -c ${config.globalvars.configsrc}/src/fastfetch.jsonc -l ${config.globalvars.configsrc}/src/nix-snowflakes.png";
+        "beaufetch" = "fastfetch -c ${config.vars.configsrc}/src/fastfetch.jsonc -l ${config.vars.configsrc}/src/nix-snowflakes.png";
       };
     };
   programs.atuin = {

@@ -1,5 +1,5 @@
 { self, lib, ... }: {
-  options.globalvars = {
+  options.vars = {
     # Disk UUID
     efiuuid = lib.mkOption {
       type = lib.types.str;
@@ -28,6 +28,10 @@
     configsrc = lib.mkOption {
       type = lib.types.path;
       default = self.outPath;
+    };
+    machinetype = lib.mkOption {
+      type = lib.types.path;
+      default = "os";
     };
   };
 }

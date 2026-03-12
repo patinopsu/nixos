@@ -5,7 +5,7 @@
     gpu-screen-recorder.enable = true;
     _1password.enable = true;
     _1password-gui.enable = true;
-    _1password-gui.polkitPolicyOwners = [ "${config.globalvars.username}" ];
+    _1password-gui.polkitPolicyOwners = [ "${config.vars.username}" ];
   };
   environment.systemPackages = with pkgs; [
     swtpm

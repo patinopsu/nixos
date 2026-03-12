@@ -12,7 +12,7 @@
       ];
 
       "$terminal" = "kitty";
-      "$fileManager" = "kitty yazi";
+      "$fileManager" = "nautilus";
       "$menu" = "vicinae toggle";
       "$browser" = "brave";
       "$mainMod" = "SUPER";
@@ -123,7 +123,7 @@
         "$mainMod, Q, killactive"
         "$mainMod, V, exec, noctalia-shell ipc call launcher clipboard"
         "$mainMod, E, exec, $fileManager"
-        "$mainMod Shift, R, exec, ${config.globalvars.configsrc}/src/scripts/record.sh"
+        "$mainMod Shift, R, exec, ${config.vars.configsrc}/src/scripts/record.sh"
 
         "Alt, Space, exec, $menu"
         "$mainMod, L, exec, hyprlock"
@@ -139,10 +139,10 @@
         "$mainMod, 9, workspace, 9"
         "$mainMod, 0, workspace, 10"
 
-        "$mainMod SHIFT, left, movewindow, l"
-        "$mainMod SHIFT, up, movewindow, u"
-        "$mainMod SHIFT, down, movewindow, d"
-        "$mainMod SHIFT, right, movewindow, r"
+        "$mainMod SHIFT, W, movewindow, u"
+        "$mainMod SHIFT, A, movewindow, l"
+        "$mainMod SHIFT, S, movewindow, d"
+        "$mainMod SHIFT, D, movewindow, r"
         "$mainMod SHIFT, 1, movetoworkspace, 1"
         "$mainMod SHIFT, 2, movetoworkspace, 2"
         "$mainMod SHIFT, 3, movetoworkspace, 3"
@@ -154,21 +154,17 @@
         "$mainMod SHIFT, 9, movetoworkspace, 9"
         "$mainMod SHIFT, 0, movetoworkspace, 10"
 
-        "$mainMod, A, movefocus, l"
-        "$mainMod, D, movefocus, r"
         "$mainMod, W, movefocus, u"
+        "$mainMod, A, movefocus, l"
         "$mainMod, S, movefocus, d"
-        "bind = $mainMod, X, layoutmsg, move +col"
-        "bind = $mainMod, Z, layoutmsg, move -col"
-        "bind = $mainMod SHIFT, X, layoutmsg, movewindowto r"
-        "bind = $mainMod SHIFT, Z, layoutmsg, movewindowto l"
-        "bind = $mainMod SHIFT, up, layoutmsg, movewindowto u"
-        "bind = $mainMod SHIFT, down, layoutmsg, movewindowto d"
-        "bind = $mainMod SHIFT, A, layoutmsg, promote"
+        "$mainMod, D, movefocus, r"
+        "$mainMod, X, layoutmsg, move +col"
+        "$mainMod, Z, layoutmsg, move -col"
+        "$mainMod SHIFT, Q, layoutmsg, promote"
 
-        ", PRINT, exec, ${config.globalvars.configsrc}/src/scripts/screenshots.sh full"
-        "Alt, PRINT, exec, ${config.globalvars.configsrc}/src/scripts/screenshots.sh window"
-        "Ctrl, PRINT, exec,${config.globalvars.configsrc}/src/scripts/screenshots.sh region"
+        ", PRINT, exec, ${config.vars.configsrc}/src/scripts/screenshots.sh full"
+        "Alt, PRINT, exec, ${config.vars.configsrc}/src/scripts/screenshots.sh window"
+        "Ctrl, PRINT, exec,${config.vars.configsrc}/src/scripts/screenshots.sh region"
       ];
 
       bindl = [
