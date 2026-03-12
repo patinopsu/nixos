@@ -17,11 +17,10 @@
     ./modules/users.nix
 
     # Variables
-    ./src/options.nix
+    ./modules/vars/default.nix
 
-    # Gaming Components
-    ./modules/gaming/ananicy.nix
-    ./modules/gaming/steam.nix
+    # Optional Modules (NixOS Modules)
+    ./modules/gaming/default.nix
 
     # Components Imports
     inputs.sops-nix.nixosModules.sops

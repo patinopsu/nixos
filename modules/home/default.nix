@@ -19,7 +19,7 @@
     ./zed.nix
 
     # Variables
-    ../../src/options.nix
+    ../vars/default.nix
 
     inputs.vicinae.homeManagerModules.default
     inputs.spicetify-nix.homeManagerModules.spicetify

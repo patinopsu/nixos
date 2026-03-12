@@ -8,8 +8,8 @@
   vars.bootuuid = "1e7b7029-fe58-4171-8c6d-f9c4e6aedc78";
   vars.rootuuid = "2eebacb3-7e4c-448d-9147-b66a9b5c3b28";
 
-  steam.enable = true;
-  ananicy-cpp.enable = true;
+  vars.gaming.steam.enable = true;
+  vars.gaming.ananicy-cpp.enable = true;
 
   hardware.graphics = {
     enable = true;
