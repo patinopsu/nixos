@@ -19,9 +19,19 @@
     withUWSM  = true;
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
   };
-  environment.systemPackages = with pkgs.kdePackages; [
+  environment.systemPackages = with pkgs.kdePackages; ([
+    kio
+    kio-fuse
+    kio-extras
     dolphin
-  ];
+  ] ++ (with pkgs; [
+    imv
+    haruna
+    digikam
+  ]));
+  environment.etc = {
+    "/xdg/menus/applications.menu".text = builtins.readFile "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
+  };
   services = {
     gvfs.enable = true;
     gnome.gnome-keyring.enable = true;

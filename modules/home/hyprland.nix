@@ -143,6 +143,12 @@
         "$mainMod SHIFT, A, movewindow, l"
         "$mainMod SHIFT, S, movewindow, d"
         "$mainMod SHIFT, D, movewindow, r"
+
+        "$mainMod ALT, W, resizeactive, 0 -30"
+        "$mainMod ALT, A, resizeactive, -30 0"
+        "$mainMod ALT, S, resizeactive, 0 30"
+        "$mainMod ALT, D, resizeactive, 30 0"
+
         "$mainMod SHIFT, 1, movetoworkspace, 1"
         "$mainMod SHIFT, 2, movetoworkspace, 2"
         "$mainMod SHIFT, 3, movetoworkspace, 3"
@@ -158,6 +164,7 @@
         "$mainMod, A, movefocus, l"
         "$mainMod, S, movefocus, d"
         "$mainMod, D, movefocus, r"
+        
         "$mainMod, X, layoutmsg, move +col"
         "$mainMod, Z, layoutmsg, move -col"
         "$mainMod SHIFT, Q, layoutmsg, promote"

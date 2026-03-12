@@ -28,6 +28,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     vicinae.url = "github:vicinaehq/vicinae";
+    dolphin-overlay.url = "github:rumboon/dolphin-overlay";
     hyprshell = {
       url = "github:H3rmt/hyprshell?ref=hyprshell-release";
       inputs.hyprland.follows = "hyprland";

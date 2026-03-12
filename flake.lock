@@ -131,6 +131,24 @@
         "type": "github"
       }
     },
+    "dolphin-overlay": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1743892246,
+        "narHash": "sha256-AHeavUWjnDPT/hffE5hM8RIew+mZJSSr9tUEiSvZW30=",
+        "owner": "rumboon",
+        "repo": "dolphin-overlay",
+        "rev": "55fec3268972876890d6081d3d76a701c37c01d7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rumboon",
+        "repo": "dolphin-overlay",
+        "type": "github"
+      }
+    },
     "firefox-gnome-theme": {
       "flake": false,
       "locked": {
@@ -390,7 +408,7 @@
         "hyprutils": "hyprutils",
         "hyprwayland-scanner": "hyprwayland-scanner",
         "hyprwire": "hyprwire",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": "nixpkgs_2",
         "pre-commit-hooks": "pre-commit-hooks",
         "systems": "systems",
         "xdph": "xdph"
@@ -517,7 +535,7 @@
         "hyprland": [
           "hyprland"
         ],
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_3"
       },
       "locked": {
         "lastModified": 1772412536,
@@ -683,16 +701,15 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1772198003,
-        "narHash": "sha256-I45esRSssFtJ8p/gLHUZ1OUaaTaVLluNkABkk6arQwE=",
+        "lastModified": 1743890059,
+        "narHash": "sha256-QQLhHHGNtAW8qRpseb40zqZlhZUeRRUg2SGmXjfE+so=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "dd9b079222d43e1943b6ebd802f04fd959dc8e61",
+        "rev": "58a813438464b5295170efe38d8bd5f40fcc1d23",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -714,6 +731,22 @@
     },
     "nixpkgs_2": {
       "locked": {
+        "lastModified": 1772198003,
+        "narHash": "sha256-I45esRSssFtJ8p/gLHUZ1OUaaTaVLluNkABkk6arQwE=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "dd9b079222d43e1943b6ebd802f04fd959dc8e61",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
         "lastModified": 1767379071,
         "narHash": "sha256-EgE0pxsrW9jp9YFMkHL9JMXxcqi/OoumPJYwf+Okucw=",
         "owner": "nixos",
@@ -728,7 +761,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
+    "nixpkgs_4": {
       "locked": {
         "lastModified": 1772963539,
         "narHash": "sha256-9jVDGZnvCckTGdYT53d/EfznygLskyLQXYwJLKMPsZs=",
@@ -744,7 +777,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_4": {
+    "nixpkgs_5": {
       "locked": {
         "lastModified": 1772773019,
         "narHash": "sha256-nbKkTH2oRlWaAjeDh/QMraqjfj/C2xJFa53twFzRd8o=",
@@ -757,7 +790,7 @@
         "url": "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz"
       }
     },
-    "nixpkgs_5": {
+    "nixpkgs_6": {
       "locked": {
         "lastModified": 1772542754,
         "narHash": "sha256-WGV2hy+VIeQsYXpsLjdr4GvHv5eECMISX1zKLTedhdg=",
@@ -773,7 +806,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_6": {
+    "nixpkgs_7": {
       "locked": {
         "lastModified": 1767026758,
         "narHash": "sha256-7fsac/f7nh/VaKJ/qm3I338+wAJa/3J57cOGpXi0Sbg=",
@@ -882,11 +915,12 @@
     },
     "root": {
       "inputs": {
+        "dolphin-overlay": "dolphin-overlay",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "hyprshell": "hyprshell",
         "nix-flatpak": "nix-flatpak",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_4",
         "noctalia": "noctalia",
         "noctalia-qs": "noctalia-qs",
         "sops-nix": "sops-nix",
@@ -918,7 +952,7 @@
     },
     "spicetify-nix": {
       "inputs": {
-        "nixpkgs": "nixpkgs_4",
+        "nixpkgs": "nixpkgs_5",
         "systems": "systems_2"
       },
       "locked": {
@@ -1112,7 +1146,7 @@
     },
     "vicinae": {
       "inputs": {
-        "nixpkgs": "nixpkgs_5",
+        "nixpkgs": "nixpkgs_6",
         "systems": "systems_4"
       },
       "locked": {
@@ -1191,7 +1225,7 @@
       "inputs": {
         "crane": "crane_2",
         "flake-parts": "flake-parts_3",
-        "nixpkgs": "nixpkgs_6",
+        "nixpkgs": "nixpkgs_7",
         "xremap": "xremap"
       },
       "locked": {
