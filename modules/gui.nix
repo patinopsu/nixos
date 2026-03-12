@@ -29,9 +29,6 @@
     haruna
     digikam
   ]));
-  environment.etc = {
-    "/xdg/menus/applications.menu".text = builtins.readFile "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
-  };
   services = {
     gvfs.enable = true;
     gnome.gnome-keyring.enable = true;
