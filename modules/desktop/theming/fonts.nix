@@ -3,10 +3,6 @@
     fonts = {
       fontDir.enable = true;
       enableDefaultPackages = true;
-      packages = with pkgs; [
-        inter
-        nerd-fonts.jetbrains-mono
-      ];
     };
   };
 }

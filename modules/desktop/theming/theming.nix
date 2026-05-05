@@ -11,15 +11,19 @@
       fonts = {
         serif = {
           name = "Noto Serif";
+          package = pkgs.noto-fonts;
         };
         sansSerif = {
           name = "Inter Display";
+          package = pkgs.inter;
         };
         monospace = {
           name = "JetBrainsMono Nerd Font";
+          package = pkgs.nerd-fonts.jetbrains-mono;
         };
         emoji = {
           name = "Noto Color Emoji";
+          package = pkgs.noto-fonts;
         };
         sizes = {
           desktop = 11;
