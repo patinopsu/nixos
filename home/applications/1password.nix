@@ -20,9 +20,8 @@
             commit = {
               gpgsign = true;
             };
-
             user = {
-              signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN0b6TBKNTqUe/qWC85XulGqi9V/HdAjB2p1PcRGeeds";
+              signingKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILO0F9jC5uBccmMoBN71OR0zNjl8sKCYjZAEN/qKsSkN";
             };
           };
         };
