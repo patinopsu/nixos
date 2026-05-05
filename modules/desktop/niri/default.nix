@@ -1,8 +1,7 @@
 { inputs, self, ... }: {
-  flake.nixosModules.wmniri = { config, lib, pkgs, ... }: {
+  flake.nixosModules.niriwm = { config, lib, pkgs, ... }: {
     imports = [
       self.nixosModules._1password
-      self.nixosModules.uwsm
     ];
     nixpkgs.overlays = [
       inputs.niri.overlays.niri
@@ -41,6 +40,32 @@
       niri = {
         enable = true;
         package = pkgs.niri-unstable;
+      };
+      uwsm = {
+        enable = true;
+        waylandCompositors = {
+          niri = {
+            prettyName = "Niri";
+            comment = "Niri compositor managed by UWSM";
+            binPath = "${pkgs.niri}/bin/niri-session";
+          };
+        };
+      };
+    };
+    systemd = {
+      services.display-manager.environment.XDG_CURRENT_DESKTOP = "X-NIXOS-SYSTEMD-AWARE";
+      user.services.polkit-gnome-authentication-agent-1 = {
+        description = "GMOME Authentication Agent";
+        wantedBy = [ "graphical-session.target" ];
+        wants = [ "graphical-session.target" ];
+        after = [ "graphical-session.target" ];
+        serviceConfig = {
+            Type = "simple";
+            ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+            Restart = "on-failure";
+            RestartSec = 1;
+            TimeoutStopSec = 10;
+          };
       };
     };
     environment = {

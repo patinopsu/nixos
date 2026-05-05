@@ -1,39 +1,28 @@
-{ inputs, self, ... }: {
-  flake.nixosModules.t14gen1hw = { config, lib, pkgs, modulesPath, ... }: {
-    imports = [
-      (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+{
+  flake.nixosModules.workstationhw = { config, lib, pkgs, modulesPath, ... }: {
     boot = {
+      kernel.sysctl = {
+        "vm.swappiness" = 10;
+      };
+      kernelParams = [
+        "zswap.enabled=1"
+      ];
       initrd = {
-        kernelModules = [
-          "dm-snapshot"
-        ];
         availableKernelModules = [
-          "tpm_tis"
           "xhci_pci"
+          "ahci"
           "nvme"
           "usbhid"
-          "usb_storage"
-          "rtsx_pci_sdmmc"
           "sd_mod"
         ];
-        luks = {
-          devices = {
-            "cryptlvm" = {
-              device = "/dev/disk/by-uuid/3db64b5d-06c6-4a8d-8a12-89f385346c1a";
-              preLVM = true;
-              allowDiscards = true;
-            };
-          };
-        };
+        kernelModules = [];
       };
-      kernelModules = [
-        "kvm-intel"
-      ];
+      kernelModules = [ "kvm-intel" ];
+      extraModulePackages = [ ];
     };
     fileSystems = {
       "/boot" = {
-        device = "/dev/disk/by-uuid/F4B1-F4AE";
+        device = "/dev/disk/by-uuid/6572-9F54";
         fsType = "vfat";
         options = [
           "fmask=0022"
@@ -41,7 +30,7 @@
         ];
       };
       "/" = {
-        device = "/dev/mapper/vg0-root";
+        device = "/dev/disk/by-uuid/31543045-fba5-4482-9b2a-73493e864a44";
         fsType = "btrfs";
         options = [
           "subvol=@"
@@ -53,7 +42,7 @@
         ];
       };
       "/home" = {
-        device = "/dev/mapper/vg0-root";
+        device = "/dev/disk/by-uuid/31543045-fba5-4482-9b2a-73493e864a44";
         fsType = "btrfs";
         options = [
           "subvol=@home"
@@ -65,7 +54,7 @@
         ];
       };
       "/nix" = {
-        device = "/dev/mapper/vg0-root";
+        device = "/dev/disk/by-uuid/31543045-fba5-4482-9b2a-73493e864a44";
         fsType = "btrfs";
         options = [
           "subvol=@nix"
@@ -77,7 +66,7 @@
         ];
       };
       "/var/log" = {
-        device = "/dev/mapper/vg0-root";
+        device = "/dev/disk/by-uuid/31543045-fba5-4482-9b2a-73493e864a44";
         fsType = "btrfs";
         options = [
           "subvol=@log"
@@ -88,25 +77,15 @@
           "space_cache=v2"
         ];
       };
-      "/mnt/d" = {
-        device = "/dev/mapper/vg0-data";
-        fsType = "btrfs";
-        options = [
-          "compress=zstd"
-          "noatime"
-          "x-gvfs-show"
-          "discard=async"
-          "ssd"
-          "space_cache=v2"
-        ];
-      };
     };
+
     swapDevices = [
       {
         device = "/var/lib/swapfile";
         size = 32*1024;
       }
     ];
+
     nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
     hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   };
