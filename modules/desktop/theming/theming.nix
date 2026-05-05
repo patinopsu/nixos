@@ -27,7 +27,8 @@
         };
         sizes = {
           desktop = 11;
-          applications = 11;
+          applications = 12;
+          terminal = 11;
         };
       };
       opacity = {
