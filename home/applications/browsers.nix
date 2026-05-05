@@ -18,6 +18,11 @@
       targets = {
         firefox = {
           firefoxGnomeTheme.enable = true;
+          fonts.override = {
+            sizes = {
+              applications = 15;
+            };
+          };
           profileNames = [
             "main"
           ];
