@@ -29,13 +29,13 @@
           source ${pkgs.nix-index}/etc/profile.d/command-not-found.sh
           echo Welcome, ${osConfig.vars.fullname}, I hope you bring some buritos 🌯
           echo ""
-          fastfetch -c ${osConfig.vars.configsrc}/assets/fastfetch.jsonc -l ${osConfig.vars.configsrc}/src/nix-snowflakes.png
+          fastfetch -c ${osConfig.vars.configsrc}/assets/fastfetch.jsonc -l ${osConfig.vars.configsrc}/assets/nix-snowflakes.png
           [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
         '';
         shellAliases = {
           garbagecollect = "sudo nix-collect-garbage -d && nrb";
           cd = "z";
-         "beaufetch" = "fastfetch -c ${osConfig.vars.configsrc}/src/fastfetch.jsonc -l ${osConfig.vars.configsrc}/src/nix-snowflakes.png";
+         "beaufetch" = "fastfetch -c ${osConfig.vars.configsrc}/assets/fastfetch.jsonc -l ${osConfig.vars.configsrc}/assets/nix-snowflakes.png";
         };
       };
     programs.atuin = {
