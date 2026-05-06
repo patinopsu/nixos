@@ -39,37 +39,5 @@
     services = {
       xserver.videoDrivers = ["nvidia"];
     };
-    services.displayManager.ly.settings = {
-      box_title = "Patin's Workstation";
-    };
-    home-manager.users.${config.vars.username}.programs.niri.settings = {
-      input = {
-        mouse = {
-          accel-speed = -0.10;
-        };
-      };
-      outputs = {
-        "DP-2" = {
-          variable-refresh-rate = "on-demand";
-          mode = {
-            width = 1920;
-            height = 1080;
-            refresh = 144.0;
-          };
-        };
-        "HDMI-A-3" = {
-          enable = true;
-          mode = {
-            width = 640;
-            height = 480;
-            refresh = 59.929;
-          };
-          #position = {
-          #  x = 10000;
-          #  y = 10000;
-          #};
-        };
-      };
-    };
   };
 }
