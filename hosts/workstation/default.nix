@@ -37,7 +37,6 @@
       };
     };
     services = {
-      throttled.enable = true;
       xserver.videoDrivers = ["nvidia"];
     };
     services.displayManager.ly.settings = {
@@ -57,6 +56,18 @@
             height = 1080;
             refresh = 144.0;
           };
+        };
+        "HDMI-A-3" = {
+          enable = true;
+          mode = {
+            width = 640;
+            height = 480;
+            refresh = 59.929;
+          };
+          #position = {
+          #  x = 10000;
+          #  y = 10000;
+          #};
         };
       };
     };
