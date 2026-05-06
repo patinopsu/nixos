@@ -9,6 +9,7 @@
       home-manager
 
       docker
+      waydroid
       vpn
 
       workstationcfg
