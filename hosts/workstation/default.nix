@@ -5,7 +5,7 @@
       audio
       flatpak
       desktop
-      niriwm
+      plasmade
       home-manager
 
       docker
