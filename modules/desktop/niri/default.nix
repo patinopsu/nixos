@@ -24,6 +24,10 @@
       blueman = lib.mkIf (config.hardware ? bluetooth) {
         enable = true;
       };
+      gnome = lib.mkForce {
+        gnome-keyring.enable = true;
+        gcr-ssh-agent.enable = false;
+      };
       displayManager.ly = {
         enable = true;
         settings = {
