@@ -5,7 +5,7 @@
     ];
     services = {
       desktopManager.plasma6.enable = true;
-      displayManager.plasma-login-manager.enable = true;;
+      displayManager.plasma-login-manager.enable = true;
     };
     home-manager.users.${config.vars.username} = {
       imports = [
