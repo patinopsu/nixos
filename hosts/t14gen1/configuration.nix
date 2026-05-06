@@ -6,7 +6,7 @@
       bluetooth
       flatpak
       desktop
-      wmniri
+      niriwm
       home-manager
       secureboot
       docker
