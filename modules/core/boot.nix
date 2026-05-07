@@ -4,6 +4,11 @@
       loader = {
         limine = {
           enable = true;
+          style = {
+            wallpapers = [
+             "${config.vars.configsrc}/assets/wallpapers/Cotton Candy Skies 1.png"
+            ];
+          };
         };
         efi = {
           canTouchEfiVariables = true;
