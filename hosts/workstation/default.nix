@@ -10,6 +10,7 @@
 
       docker
       waydroid
+      gaming
       vpn
 
       workstationcfg
