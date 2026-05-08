@@ -14,6 +14,7 @@
       vpn
       tailscale
 
+      secureboot
       workstationcfg
       workstationhw
     ];
