@@ -8,9 +8,12 @@
       desktop
       niriwm
       home-manager
-      secureboot
+
       docker
+      waydroid
       vpn
+
+      secureboot
 
       t14gen1cfg
       t14gen1hw
