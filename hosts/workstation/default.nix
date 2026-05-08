@@ -12,6 +12,7 @@
       waydroid
       gaming
       vpn
+      tailscale
 
       workstationcfg
       workstationhw
