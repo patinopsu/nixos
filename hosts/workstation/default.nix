@@ -54,6 +54,7 @@
     environment.systemPackages = [
       pkgs.nodejs
       pkgs.wineWow64Packages.waylandFull
+      pkgs.nvtopPackages.nvidia
       inputs.opendeck-nix.packages.${pkgs.system}.opendeck
     ];
   };
