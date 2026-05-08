@@ -50,5 +50,11 @@
         KERNEL=="uinput", GROUP="input", MODE="0660", OPTIONS+="static_node=uinput"
       '';
     };
+    users.users.${config.vars.username}.extraGroups = [ "input" ];
+    environment.systemPackages = [
+      pkgs.nodejs
+      pkgs.wineWow64Packages.waylandFull
+      inputs.opendeck-nix.packages.${pkgs.system}.opendeck
+    ];
   };
 }

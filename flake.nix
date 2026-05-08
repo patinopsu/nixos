@@ -35,6 +35,10 @@
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
     };
+    opendeck-nix = {
+      url = "github:Yeradon/opendeck-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = inputs: let
     inherit (inputs.nixpkgs) lib;
