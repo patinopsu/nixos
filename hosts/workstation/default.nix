@@ -42,6 +42,13 @@
     };
     services = {
       xserver.videoDrivers = ["nvidia"];
+      udev.extraRules = ''
+        # Ajazz AKP153 Rev2 - USB and HIDRAW access
+        SUBSYSTEM=="usb", ATTRS{idVendor}=="0300", ATTRS{idProduct}=="3010", GROUP="input", MODE="0660"
+        KERNEL=="hidraw*", ATTRS{idVendor}=="0300", ATTRS{idProduct}=="3010", GROUP="input", MODE="0660"
+
+        KERNEL=="uinput", GROUP="input", MODE="0660", OPTIONS+="static_node=uinput"
+      '';
     };
   };
 }
