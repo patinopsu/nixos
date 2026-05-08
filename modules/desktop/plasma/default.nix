@@ -15,6 +15,9 @@
         self.homeModules.spotify
         self.homeModules.editors
       ];
+      stylix.targets.kde = {
+        decorations = "org.kde.klassy";
+      };
     };
     environment = {
       systemPackages = with pkgs; [
