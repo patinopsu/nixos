@@ -35,8 +35,15 @@
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
     };
+    nix-flatpak = {
+      url = "github:gmodena/nix-flatpak/?ref=latest";
+    };
     opendeck-nix = {
       url = "github:Yeradon/opendeck-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixos-millennium = {
+      url = "github:re1n0/nixos-millennium";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
