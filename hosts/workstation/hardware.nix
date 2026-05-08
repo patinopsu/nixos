@@ -77,6 +77,13 @@
           "space_cache=v2"
         ];
       };
+      "/mnt/clayton" = {
+        device = "/dev/disk/by-uuid/b0689c57-359a-479c-b8e8-0da5ffd36f53";
+        fsType = "ext4";
+        options = [
+          "nofail"
+        ];
+      };
     };
 
     swapDevices = [
