@@ -13,6 +13,7 @@
       gaming
       vpn
       tailscale
+      gpusc
 
       secureboot
       workstationcfg
