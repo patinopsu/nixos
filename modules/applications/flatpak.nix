@@ -11,6 +11,14 @@
           location = "https://dl.flathub.org/repo/flathub.flatpakrepo";
         }
       ];
+      packages = [
+        "io.github.kolunmi.Bazaar"
+        "com.github.tchx84.Flatseal"
+      ];
+      update.auto = {
+        enable = true;
+        onCalendar = "daily";
+      };
     };
   };
 }

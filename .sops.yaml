@@ -1,0 +1,12 @@
+keys:
+  - &global age14pl8l2xsf0mw6ky8l5q8nqyxnuxjmcfz4vc3gvwtjr0h6q7epy3qjfw3fv
+  - &workstation age1kr9qvj0uvvgsuwzacyh6q7v9634tzzttma4n6q9u30dfsczekpvs5e507w
+creation_rules:
+  - path_regex: secrets/global.yaml
+    key_groups:
+      - age:
+          - *global
+  - path_regex: secrets/workstation.yaml
+    key_groups:
+      - age:
+          - *workstation

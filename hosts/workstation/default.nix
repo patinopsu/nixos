@@ -20,7 +20,7 @@
       workstationhw
     ];
   };
-  flake.nixosModules.workstationcfg = { pkgs, config, ... }: {
+  flake.nixosModules.workstationcfg = { stdenv, pkgs, config, ... }: {
     networking = {
       hostName = "daytona";
     };
@@ -56,7 +56,7 @@
       pkgs.nodejs
       pkgs.wineWow64Packages.waylandFull
       pkgs.nvtopPackages.nvidia
-      inputs.opendeck-nix.packages.${pkgs.system}.opendeck
+      inputs.opendeck-nix.packages.${pkgs.stdenv.hostPlatform.system}.opendeck
     ];
   };
 }

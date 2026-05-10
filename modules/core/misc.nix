@@ -6,8 +6,10 @@
     environment.systemPackages = with pkgs; [
       usbutils
       pciutils
-      minicom
     ];
+    services = {
+      dbus.implementation = "broker";
+    };
     i18n = {
       defaultLocale = "en_US.UTF-8";
       extraLocales = ["th_TH.UTF-8/UTF-8"];
