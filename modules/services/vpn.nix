@@ -1,7 +1,13 @@
 {
   flake.nixosModules.vpn = { pkgs, ... }: {
-    environment.systemPackages = with pkgs; [
-      wireguard-tools
+    services.tailscale.enable = true;
+    networking.firewall = {
+      trustedInterfaces = [ "tailscale0" ];
+      allowedUDPPorts = [ config.services.tailscale.port ];
+    };
+    systemd.services.tailscaled.serviceConfig.Environment = [
+      "TS_DEBUG_FIREWALL_MODE=nftables"
     ];
+  };
   };
 }
