@@ -40,6 +40,7 @@
         open = true;
         package = config.boot.kernelPackages.nvidiaPackages.production;
       };
+      nvidia-container-toolkit.enable = true;
     };
     services = {
       xserver.videoDrivers = ["nvidia"];
