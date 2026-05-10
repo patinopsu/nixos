@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.base = { config, pkgs, ...  }: {
+  flake.nixosModules.base = { config, ...  }: {
     security = {
       protectKernelImage = true;
       rtkit.enable = true;
@@ -10,10 +10,6 @@
           Defaults passprompt="🔒password for %p: "
           Defaults badpass_message="❌Incorrect Password. Please try again."
         '';
-      };
-      apparmor = {
-        enable = true;
-        killUnconfinedConfinables = true;
       };
     };
   };
