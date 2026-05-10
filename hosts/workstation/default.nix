@@ -12,7 +12,6 @@
       waydroid
       gaming
       vpn
-      tailscale
       gpusc
 
       secureboot
