@@ -9,7 +9,13 @@
           setSocketVariable = true;
         };
       };
+      podman = {
+        enable = true;
+      };
     };
-    users.users.${config.vars.username}.extraGroups = [ "docker" ];
+    users.users.${config.vars.username}.extraGroups = [
+      "docker"
+      "podman"
+    ];
   };
 }
