@@ -28,7 +28,7 @@
         sizes = {
           desktop = 11;
           applications = 12;
-          terminal = 11;
+          terminal = 12;
         };
       };
       opacity = {
@@ -47,6 +47,9 @@
         package = pkgs.whitesur-cursors;
         size = 24;
       };
+    };
+    environment.etc."wallpapers" = {
+      source = "${config.vars.configsrc}/assets/wallpapers";
     };
   };
 }
