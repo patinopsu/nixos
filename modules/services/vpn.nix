@@ -9,5 +9,4 @@
       "TS_DEBUG_FIREWALL_MODE=nftables"
     ];
   };
-  };
 }
