@@ -4,9 +4,10 @@
       enable = true;
       package = pkgs.waydroid-nftables;
     };
-
     networking = {
-      firewall.trustedInterfaces = [ "waydroid0" ];
+      firewall.trustedInterfaces = [
+        "waydroid0"
+      ];
     };
     boot.kernel.sysctl = {
       "net.ipv4.ip_forward" = 1;
