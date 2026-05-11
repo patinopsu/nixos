@@ -1,9 +1,9 @@
 {
   flake.nixosModules.base = { config, ...  }: {
     security = {
-      protectKernelImage = true;
       rtkit.enable = true;
       polkit.enable = true;
+      protectKernelImage = true;
       sudo = {
         extraConfig = ''
           Defaults pwfeedback
