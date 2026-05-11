@@ -1,12 +1,21 @@
 keys:
-  - &global age14pl8l2xsf0mw6ky8l5q8nqyxnuxjmcfz4vc3gvwtjr0h6q7epy3qjfw3fv
+  - &global age1xfckfx6u834wccgeshkvf04y2dg8w8m578kx8hc5pp6n8hcse5fq05l5nd
+  - &t14gen1 age1v2tj0245rqea80zyp0x5jnp0lf2ljwa0sfmu7x2rhha5appznufsqtez07
   - &workstation age1kr9qvj0uvvgsuwzacyh6q7v9634tzzttma4n6q9u30dfsczekpvs5e507w
 creation_rules:
-  - path_regex: secrets/global.yaml
+  - path_regex: secrets/common/.*
     key_groups:
       - age:
           - *global
-  - path_regex: secrets/workstation.yaml
+          - *workstation
+          - *t14gen1
+  - path_regex: secrets/hosts/workstation.yaml
     key_groups:
       - age:
+          - *global
           - *workstation
+  - path_regex: secrets/hosts/t14gen1.yaml
+    key_groups:
+      - age:
+          - *global
+          - *t14gen1
