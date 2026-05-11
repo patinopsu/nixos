@@ -3,9 +3,9 @@
     imports = [
       inputs.sops-nix.nixosModules.sops
     ];
-    sops = {
-      defaultSopsFile = ./global.yaml;
-    };
+    #sops = {
+    #  defaultSopsFile = ../../secrets/global.yaml;
+    #};
     environment.systemPackages = with pkgs; [
       sops
     ];
