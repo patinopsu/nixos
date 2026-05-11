@@ -58,5 +58,8 @@
       pkgs.nvtopPackages.nvidia
       inputs.opendeck-nix.packages.${pkgs.stdenv.hostPlatform.system}.opendeck
     ];
+    environment.variables = {
+      MOZ_DISABLE_RDD_SANDBOX = "1";
+    };
   };
 }
