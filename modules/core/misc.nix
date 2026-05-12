@@ -2,7 +2,18 @@
   flake.nixosModules.base = { config, lib, pkgs, ... }: {
     time.timeZone = "Asia/Bangkok";
     system.stateVersion = "25.11";
-    programs.zsh.enable = true;
+    programs = {
+      zsh.enable = true;
+      nix-ld = {
+        enable = true;
+        libraries = with pkgs; [];
+      };
+      appimage = {
+        enable = true;
+        binfmt = true;
+        #package = pkgs.appimage-run.override;
+      };
+    };
     environment.systemPackages = with pkgs; [
       usbutils
       pciutils
