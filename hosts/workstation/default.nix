@@ -20,8 +20,9 @@
     ];
   };
   flake.nixosModules.workstationcfg = { stdenv, pkgs, config, ... }: {
-    networking = {
-      hostName = "daytona";
+    vars = {
+      prettyname = "Workstaion";
+      codename = "daytona";
     };
     hardware = {
       graphics = {
