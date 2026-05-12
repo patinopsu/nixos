@@ -6,7 +6,7 @@
           enable = true;
           style = {
             wallpapers = [
-             "${config.vars.configsrc}/assets/wallpapers/Cotton Candy Skies 1.png"
+             "${config.vars.configsrc}/assets/wallpapers/Unsplash/A Yellow Lit Tunnel With Windows.jpg"
             ];
           };
         };
