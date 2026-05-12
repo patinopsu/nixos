@@ -1,7 +1,7 @@
 {
   flake.nixosModules.base = { config, lib, pkgs, ... }: {
     networking = {
-      hostName = lib.mkDefault "undefined";
+      hostName = config.vars.codename;
       networkmanager = {
         enable = true;
       };
