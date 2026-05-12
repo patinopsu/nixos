@@ -3,9 +3,9 @@
     imports = [
       inputs.sops-nix.nixosModules.sops
     ];
-    #sops = {
-    #  defaultSopsFile = ../../secrets/global.yaml;
-    #};
+    sops = {
+      age.keyFile = "${config.home-manager.users.${config.vars.username}.home.homeDirectory}/.config/sops/age/keys.txt";
+    };
     environment.systemPackages = with pkgs; [
       sops
     ];
