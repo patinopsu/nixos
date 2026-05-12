@@ -10,6 +10,10 @@
           type = lib.types.str;
           default = "undefined";
         };
+        nextdns_id = lib.mkOption {
+          type = lib.types.str;
+          default = "undefined";
+        };
         configsrc = lib.mkOption {
           type = lib.types.path;
           default = self.outPath;
