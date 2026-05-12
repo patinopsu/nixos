@@ -269,7 +269,7 @@
   "wallpaper": {
     "enabled": true,
     "overviewEnabled": true,
-    "directory": "/home/patin/Pictures/Wallpapers",
+    "directory": "/etc/wallpapers",
     "monitorDirectories": [],
     "enableMultiMonitorDirectories": false,
     "showHiddenFiles": false,
