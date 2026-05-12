@@ -12,7 +12,9 @@
         ];
       };
       firewall = {
-        trustedInterfaces = [ "tailscale0" ];
+        trustedInterfaces = [
+          "tailscale0"
+        ];
         allowedUDPPorts = [ config.services.tailscale.port ];
       };
     };
