@@ -10,7 +10,6 @@
       home-manager
 
       docker
-      tailscale
       waydroid
       vpn
 
