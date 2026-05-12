@@ -10,7 +10,7 @@
           type = lib.types.str;
           default = "undefined";
         };
-        nextdns_id = lib.mkOption {
+        nextdns_hostname = lib.mkOption {
           type = lib.types.str;
           default = "undefined";
         };
