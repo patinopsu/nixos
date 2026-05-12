@@ -46,6 +46,10 @@
       url = "github:Yeradon/opendeck-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    gsr-ui-nix = {
+      url = "github:rPlakama/gsr-ui-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = inputs: let
     inherit (inputs.nixpkgs) lib;
