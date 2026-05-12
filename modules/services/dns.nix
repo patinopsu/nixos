@@ -18,8 +18,8 @@
         content = ''
           [Resolve]
           DNSOverTLS=yes
-          DNS=45.90.28.0#${config.vars.nextdns_id}-${config.sops.placeholder.nextdns}.dns.nextdns.io
-          DNS=45.90.30.0#${config.vars.nextdns_id}-${config.sops.placeholder.nextdns}.dns.nextdns.io
+          DNS=45.90.28.0#${config.vars.nextdns_hostname}-${config.sops.placeholder.nextdns}.dns.nextdns.io
+          DNS=45.90.30.0#${config.vars.nextdns_hostname}-${config.sops.placeholder.nextdns}.dns.nextdns.io
           Domains=~.
         '';
       };
