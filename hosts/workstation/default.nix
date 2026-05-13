@@ -21,7 +21,7 @@
   };
   flake.nixosModules.workstationcfg = { stdenv, pkgs, config, ... }: {
     vars = {
-      prettyname = "Workstaion";
+      prettyname = "Workstation";
       codename = "daytona";
       nextdns_hostname = config.vars.prettyname;
     };
