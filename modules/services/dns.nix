@@ -2,7 +2,10 @@
   flake.nixosModules.base = { config, lib, pkgs, ... }: {
     networking = {
       networkmanager = {
-        dns = "systemd-resolved";
+        dns = "none";
+        appendNameservers = [
+          "127.0.0.53"
+        ];
       };
     };
     sops = {
@@ -10,27 +13,36 @@
         sopsFile = "${config.vars.configsrc}/secrets/common/nextdns.yaml";
         key = "id";
       };
-      templates."nextdns-resolved.conf" = {
+      templates."dnsproxy.yaml" = {
+        group = "keys";
         mode = "0440";
-        owner = "systemd-resolve";
-        group = "systemd-resolve";
-        path = "/etc/systemd/resolved.conf.d/nextdns.conf";
+        path = "/run/dnsproxy.yaml";
         content = ''
-          [Resolve]
-          DNSOverTLS=yes
-          DNS=45.90.28.0#${config.vars.nextdns_hostname}-${config.sops.placeholder.nextdns}.dns.nextdns.io
-          DNS=45.90.30.0#${config.vars.nextdns_hostname}-${config.sops.placeholder.nextdns}.dns.nextdns.io
-          Domains=~.
+          listen-addrs:
+            - 127.0.0.53
+          listen-ports:
+            - 53
+          upstream:
+            - https://dns.nextdns.io/${config.sops.placeholder.nextdns}/${config.vars.prettyname}
+          bootstrap:
+            - 9.9.9.9
+            - 1.1.1.1
         '';
       };
     };
     services = {
-      resolved = {
+      dnsproxy = {
         enable = true;
-        settings.Resolve = {
-          DNSSEC = true;
-        };
+        flags = [ "--config-path=${config.sops.templates."dnsproxy.yaml".path}" ];
       };
+      resolved.enable = false;
+    };
+    systemd.services.dnsproxy.serviceConfig = {
+      SupplementaryGroups = [ "keys" ];
+      BindReadOnlyPaths = [
+        "/run/secrets/rendered"
+        "${config.sops.templates."dnsproxy.yaml".path}"
+      ];
     };
   };
 }
