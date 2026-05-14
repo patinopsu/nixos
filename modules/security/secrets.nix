@@ -4,7 +4,7 @@
       inputs.sops-nix.nixosModules.sops
     ];
     sops = {
-      age.keyFile = "${config.home-manager.users.${config.vars.username}.home.homeDirectory}/.config/sops/age/keys.txt";
+      age.keyFile = "/etc/age-key.txt";
     };
     environment.systemPackages = with pkgs; [
       sops
