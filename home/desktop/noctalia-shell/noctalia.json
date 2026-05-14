@@ -273,7 +273,7 @@
     "monitorDirectories": [],
     "enableMultiMonitorDirectories": false,
     "showHiddenFiles": false,
-    "viewMode": "single",
+    "viewMode": "recursive",
     "setWallpaperOnAllMonitors": true,
     "linkLightAndDarkWallpapers": true,
     "fillMode": "crop",
