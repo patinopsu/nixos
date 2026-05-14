@@ -20,9 +20,13 @@
       kernelModules = [ "kvm-intel" ];
       extraModulePackages = [ ];
     };
-    fileSystems = {
+    fileSystems = let
+      BOOTUUID = "6572-9F54";
+      ROOTUUID = "31543045-fba5-4482-9b2a-73493e864a44";
+      BXUUID = "b0689c57-359a-479c-b8e8-0da5ffd36f53";
+    in {
       "/boot" = {
-        device = "/dev/disk/by-uuid/6572-9F54";
+        device = "/dev/disk/by-uuid/${BOOTUUID}";
         fsType = "vfat";
         options = [
           "fmask=0022"
@@ -30,7 +34,7 @@
         ];
       };
       "/" = {
-        device = "/dev/disk/by-uuid/31543045-fba5-4482-9b2a-73493e864a44";
+        device = "/dev/disk/by-uuid/${ROOTUUID}";
         fsType = "btrfs";
         options = [
           "subvol=@"
@@ -42,7 +46,7 @@
         ];
       };
       "/home" = {
-        device = "/dev/disk/by-uuid/31543045-fba5-4482-9b2a-73493e864a44";
+        device = "/dev/disk/by-uuid/${ROOTUUID}";
         fsType = "btrfs";
         options = [
           "subvol=@home"
@@ -54,7 +58,7 @@
         ];
       };
       "/nix" = {
-        device = "/dev/disk/by-uuid/31543045-fba5-4482-9b2a-73493e864a44";
+        device = "/dev/disk/by-uuid/${ROOTUUID}";
         fsType = "btrfs";
         options = [
           "subvol=@nix"
@@ -66,7 +70,7 @@
         ];
       };
       "/var/log" = {
-        device = "/dev/disk/by-uuid/31543045-fba5-4482-9b2a-73493e864a44";
+        device = "/dev/disk/by-uuid/${ROOTUUID}";
         fsType = "btrfs";
         options = [
           "subvol=@log"
@@ -78,7 +82,7 @@
         ];
       };
       "/mnt/clayton" = {
-        device = "/dev/disk/by-uuid/b0689c57-359a-479c-b8e8-0da5ffd36f53";
+        device = "/dev/disk/by-uuid/${BXUUID}";
         fsType = "ext4";
         options = [
           "nofail"
