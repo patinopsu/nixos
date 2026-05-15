@@ -21,9 +21,9 @@
       extraModulePackages = [ ];
     };
     fileSystems = let
-      BOOTUUID = "6572-9F54";
-      ROOTUUID = "31543045-fba5-4482-9b2a-73493e864a44";
-      BXUUID = "b0689c57-359a-479c-b8e8-0da5ffd36f53";
+      BOOTUUID = "A93B-14AB";
+      ROOTUUID = "bde00b8a-7355-41e7-b44f-b5b2ad554ee8";
+      BXUUID = "a2c4e8e8-0cf9-44f5-ad16-699f3ee67560";
     in {
       "/boot" = {
         device = "/dev/disk/by-uuid/${BOOTUUID}";
