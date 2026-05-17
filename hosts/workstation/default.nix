@@ -13,6 +13,7 @@
       gaming
       vpn
       gpusc
+      opendeck
 
       secureboot
       workstationcfg
@@ -45,20 +46,10 @@
     };
     services = {
       xserver.videoDrivers = ["nvidia"];
-      udev.extraRules = ''
-        # Ajazz AKP153 Rev2 - USB and HIDRAW access
-        SUBSYSTEM=="usb", ATTRS{idVendor}=="0300", ATTRS{idProduct}=="3010", GROUP="input", MODE="0660"
-        KERNEL=="hidraw*", ATTRS{idVendor}=="0300", ATTRS{idProduct}=="3010", GROUP="input", MODE="0660"
-
-        KERNEL=="uinput", GROUP="input", MODE="0660", OPTIONS+="static_node=uinput"
-      '';
     };
     users.users.${config.vars.username}.extraGroups = [ "input" ];
     environment.systemPackages = [
-      pkgs.nodejs
-      pkgs.wineWow64Packages.waylandFull
       pkgs.nvtopPackages.nvidia
-      inputs.opendeck-nix.packages.${pkgs.stdenv.hostPlatform.system}.opendeck
     ];
     environment.variables = {
       MOZ_DISABLE_RDD_SANDBOX = "1";
