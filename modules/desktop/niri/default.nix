@@ -14,7 +14,7 @@
         self.homeModules.browsers
         self.homeModules.terminal
         self.homeModules.vicinae
-        self.homeModules.spotify
+        self.homeModules.media
         self.homeModules.editors
       ];
     };
