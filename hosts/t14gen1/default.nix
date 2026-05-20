@@ -27,7 +27,6 @@
     vars = {
       prettyname = "ThinkPad T14 Gen 1";
       codename = "atlanta";
-      nextdns_hostname = "ThinkPad--T14--Gen--1";
     };
     hardware.graphics = {
       enable = true;
