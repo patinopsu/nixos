@@ -77,6 +77,7 @@
         nirius
         nautilus
         loupe
+        xwayland-satellite
       ];
     };
   };
