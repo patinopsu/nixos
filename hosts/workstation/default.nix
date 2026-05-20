@@ -24,7 +24,6 @@
     vars = {
       prettyname = "Workstation";
       codename = "daytona";
-      nextdns_hostname = config.vars.prettyname;
     };
     hardware = {
       graphics = {
