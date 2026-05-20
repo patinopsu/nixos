@@ -9,6 +9,7 @@
       niriwm
       home-manager
 
+      gpusc
       docker
       waydroid
       vpn
