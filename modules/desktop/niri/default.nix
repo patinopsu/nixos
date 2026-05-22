@@ -78,6 +78,11 @@
         nautilus
         loupe
         xwayland-satellite
+        wl-clipboard
+        grim
+        slurp
+        libnotify
+        jq
       ];
     };
   };
