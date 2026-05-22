@@ -42,10 +42,6 @@
     nix-flatpak = {
       url = "github:gmodena/nix-flatpak/?ref=latest";
     };
-    opendeck-nix = {
-      url = "github:Yeradon/opendeck-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     gsr-ui-nix = {
       url = "github:rPlakama/gsr-ui-nix";
       inputs.nixpkgs.follows = "nixpkgs";
