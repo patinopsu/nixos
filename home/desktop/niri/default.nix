@@ -1,5 +1,5 @@
 { inputs, self, ... }: {
-  flake.homeModules.int-niricfg = { config, lib, pkgs, ... }: {
+  flake.homeModules.int-niricfg = { osConfig, config, lib, pkgs, ... }: {
     programs.niri = {
       enable = true;
       package = pkgs.niri-unstable;
@@ -191,6 +191,18 @@
           "Mod+Alt+V".action.toggle-window-floating = [];
           "Mod+Shift+Slash".action.show-hotkey-overlay = [];
 
+          "Print" = {
+            allow-when-locked = false;
+            action.spawn = [ "${osConfig.vars.configsrc}/assets/scripts/screenshots.sh" "region" ];
+          };
+          "Mod+Print" = {
+            allow-when-locked = false;
+            action.spawn = [ "${osConfig.vars.configsrc}/assets/scripts/screenshots.sh" "full" ];
+          };
+          "Alt+Print" = {
+            allow-when-locked = false;
+            action.spawn = [ "${osConfig.vars.configsrc}/assets/scripts/screenshots.sh" "window" ];
+          };
         };
         window-rules = [
           {
