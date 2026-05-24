@@ -9,9 +9,7 @@
         config = {
           keepaspect-window = "yes";
           autofit = "50%x50%";
-          profile = "gpu-hq"; # High-quality rendering
-          hwdec = "auto-safe"; # Hardware acceleration
-          vo = "gpu";
+          hwdec = "auto-safe";
           ytdl-format = "bestvideo[height<=?1080]+bestaudio/best"; # Limit youtube-dl to 1080p
         };
       };
