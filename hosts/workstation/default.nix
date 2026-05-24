@@ -15,6 +15,7 @@
       gpusc
       opendeck
 
+      nvidia
       secureboot
       workstationcfg
       workstationhw
@@ -33,15 +34,6 @@
           libvdpau-va-gl
         ];
       };
-      nvidia = {
-        modesetting.enable = true;
-        powerManagement.enable = true;
-        powerManagement.finegrained = false;
-        nvidiaPersistenced = true;
-        open = true;
-        package = config.boot.kernelPackages.nvidiaPackages.production;
-      };
-      nvidia-container-toolkit.enable = true;
     };
     services = {
       xserver.videoDrivers = ["nvidia"];
