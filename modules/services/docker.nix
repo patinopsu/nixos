@@ -4,10 +4,6 @@
       docker = {
         enable = true;
         storageDriver = "btrfs";
-        rootless = {
-          enable = true;
-          setSocketVariable = true;
-        };
       };
       podman = {
         enable = true;
